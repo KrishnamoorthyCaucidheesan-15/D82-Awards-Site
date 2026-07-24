@@ -41,6 +41,46 @@
     window.scrollTo({ top: 0, behavior: "auto" });
   }
 
+  // Build the expandable CQA/CEA scoring breakdown (data from SCORING in data.js).
+  function scoreAvenue(title, avenue) {
+    const rows = avenue.rows.map((r) => `
+      <details class="score-row">
+        <summary>
+          <span class="sr-no">${esc(String(r.no))}</span>
+          <span class="sr-item">${esc(r.item)}</span>
+          <span class="sr-pts">${esc(String(r.points))} pts</span>
+          <span class="sr-chev" aria-hidden="true">▾</span>
+        </summary>
+        <div class="sr-body">
+          <p>${esc(r.detail)}</p>
+          <dl class="sr-meta">
+            ${r.cutoff ? `<dt>Cut-off</dt><dd>${esc(r.cutoff)}</dd>` : ""}
+            ${r.submission ? `<dt>Submission</dt><dd>${esc(r.submission)}</dd>` : ""}
+          </dl>
+        </div>
+      </details>`).join("");
+    return `
+      <div class="avenue">
+        <h3 class="avenue-h">${esc(title)} <span class="avenue-total">${avenue.total} pts</span></h3>
+        <div class="score-rows">${rows}</div>
+      </div>`;
+  }
+
+  function renderScoring() {
+    return `
+      <details class="scoring">
+        <summary>
+          <span>Full scoring breakdown — Club Quality &amp; Engagement Avenues</span>
+          <span class="sc-chev" aria-hidden="true">▾</span>
+        </summary>
+        <div class="scoring-body">
+          <p class="scoring-intro">${esc(SCORING.note)}</p>
+          ${scoreAvenue("Club Quality Avenue (CQA)", SCORING.cqa)}
+          ${scoreAvenue("Club Engagement Avenue (CEA)", SCORING.cea)}
+        </div>
+      </details>`;
+  }
+
   /* ------------------------------- Landing ------------------------------ */
   function renderHome() {
     setActiveNav("home");
@@ -181,6 +221,11 @@
          </div>`
       : "";
 
+    // Full CQA/CEA point breakdown — only on the point-scored quality awards.
+    const SCORE_IDS = ["quality-club", "golden-club"];
+    const scoring =
+      SCORE_IDS.includes(a.id) && typeof SCORING !== "undefined" ? renderScoring() : "";
+
     const dates = (a.keyDates && a.keyDates.length)
       ? a.keyDates.map((d) => `<div class="date-row"><span>${esc(d.label)}</span><span class="d">${esc(d.display)}</span></div>`).join("")
       : "";
@@ -221,6 +266,7 @@
             <div class="prose">
               <p class="lead-p">${esc(a.description || a.summary || "")}</p>
               ${criteria}
+              ${scoring}
               <div class="detail-nav">
                 ${prev ? `<a class="btn btn-solid" href="#/award/${esc(prev.id)}">← ${esc(prev.name)}</a>` : ""}
                 ${next ? `<a class="btn btn-solid" href="#/award/${esc(next.id)}">${esc(next.name)} →</a>` : ""}
