@@ -26,9 +26,15 @@
     const c = catById(id);
     return c ? c.title : id;
   }
-  // Short tag label for calendar chips/tags
+  // Short tag label used on timeline rows
   function catShort(id) {
     return ({ membership: "Membership", club: "Club", quality: "Quality", pr: "PR" })[id] || id;
+  }
+  // Fuller label for the calendar filter chips (one selection covers the group)
+  function catChipLabel(id) {
+    return (
+      { quality: "Golden/Quality/Platinum/Pathways" }[id] || catShort(id)
+    );
   }
 
   function setActiveNav(name) {
@@ -297,6 +303,26 @@
         });
       });
     });
+
+    // CQA/CEA scoring-item deadlines (filed under the quality group).
+    if (typeof SCORING !== "undefined" && typeof SCORING_DEADLINES !== "undefined") {
+      [["cqa", "CQA"], ["cea", "CEA"]].forEach(([av, kind]) => {
+        SCORING[av].rows.forEach((r) => {
+          (SCORING_DEADLINES[av][r.no] || []).forEach(([date, term]) => {
+            events.push({
+              award: { id: "quality-club", name: r.item },
+              category: "quality",
+              kind: kind,
+              date: date,
+              time: new Date(date + "T00:00:00").getTime(),
+              label: term || "Deadline",
+              display: "",
+            });
+          });
+        });
+      });
+    }
+
     return events.sort((x, y) => x.time - y.time);
   }
 
@@ -305,7 +331,7 @@
   function renderCalendar() {
     setActiveNav("calendar");
     const catChips = [`<button class="chip ${calState.cat === "all" ? "active" : ""}" data-cat="all">All</button>`]
-      .concat(CATEGORIES.map((c) => `<button class="chip ${calState.cat === c.id ? "active" : ""}" data-cat="${esc(c.id)}">${esc(catShort(c.id))}</button>`))
+      .concat(CATEGORIES.map((c) => `<button class="chip ${calState.cat === c.id ? "active" : ""}" data-cat="${esc(c.id)}">${esc(catChipLabel(c.id))}</button>`))
       .join("");
 
     const ranges = [
@@ -450,7 +476,7 @@
             <div class="tl-date"><span class="dnum">${d.getDate()}</span>${MONTHS[d.getMonth()].slice(0,3)}</div>
             <div class="tl-card">
               <a class="tl-name" href="#/award/${esc(ev.award.id)}">${esc(ev.award.name)}</a>
-              <span class="tag ${esc(ev.category)}">${esc(catShort(ev.category))}</span>
+              <span class="tag ${esc(ev.category)}">${esc(ev.kind || catShort(ev.category))}</span>
               <span class="tl-label">${esc(ev.label)}${ev.display && !/^\d/.test(ev.display) ? " · " + esc(ev.display) : ""}</span>
             </div>
           </div>`;
