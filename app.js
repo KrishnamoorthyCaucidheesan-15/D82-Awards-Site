@@ -308,14 +308,14 @@
     if (typeof SCORING !== "undefined" && typeof SCORING_DEADLINES !== "undefined") {
       [["cqa", "CQA"], ["cea", "CEA"]].forEach(([av, kind]) => {
         SCORING[av].rows.forEach((r) => {
-          (SCORING_DEADLINES[av][r.no] || []).forEach(([date, term]) => {
+          (SCORING_DEADLINES[av][r.no] || []).forEach(([date, term, nameOverride]) => {
             events.push({
-              award: { id: "quality-club", name: r.item },
+              award: { id: "quality-club", name: nameOverride || r.item },
               category: "quality",
               kind: kind,
               date: date,
               time: new Date(date + "T00:00:00").getTime(),
-              label: term || "Deadline",
+              label: term || "",
               display: "",
             });
           });

@@ -842,7 +842,7 @@ const SCORING_DEADLINES = {
     12: [["2026-10-31", "Term 1"], ["2027-02-28", "Term 2"]],
   },
   cea: {
-    1: [["2026-09-30", "MOT"], ["2026-12-31", "Implementation"], ["2027-02-28", "MOT"], ["2027-03-31", "Implementation"]],
+    1: [["2026-09-30", "Season 1 · MOT submission"], ["2026-12-31", "Season 1 · MOT implementation"], ["2027-02-28", "Season 2 · MOT submission"], ["2027-03-31", "Season 2 · MOT implementation"]],
     2: [["2026-09-30"], ["2027-03-31"]],
     3: [["2026-09-30", "Smedley"], ["2027-03-31", "Talk Up"], ["2027-05-05", "Beat the Clock"]],
     4: [],
@@ -851,6 +851,6 @@ const SCORING_DEADLINES = {
     7: [],
     8: [],
     9: [],
-    10: [["2026-09-11", "District Council"], ["2026-11-30", "Division · Term 1"], ["2027-04-15", "Division · Term 2"]],
+    10: [["2026-09-11", "", "District Council Meeting"], ["2026-11-30", "Term 1", "Division Council Meeting"], ["2027-04-15", "Term 2", "Division Council Meeting"]],
   },
 };
