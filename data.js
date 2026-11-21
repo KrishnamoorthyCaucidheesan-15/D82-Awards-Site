@@ -331,6 +331,7 @@ const AWARDS = [
     eligibility: "All clubs are encouraged to participate.",
     criteria: [
       "TERM 1 — Add 8 new/dual/reinstated members (join date 1 Jul–30 Sep 2026; all paid up to 31 Mar 2027).",
+      "TERM 1 — Complete the renewal payments by 30 Sep 2026.",
       "TERM 1 — Renew 80%+ of the base from the 30 Jun 2026 roster (measured on 30 Sep 2026 roster); base minimum 20 as of 30 Sep 2026.",
       "TERM 2 — Add 8 new/dual/reinstated members (join date 1 Oct 2026–31 Mar 2027; all paid up to 30 Sep 2027).",
       "TERM 2 — Renew 80%+ of the 30 Sep 2026 roster (measured on 31 Mar 2027 roster); base minimum 20 as of 31 Mar 2027.",
@@ -353,7 +354,7 @@ const AWARDS = [
     eligibility: "All clubs are encouraged to participate.",
     criteria: [
       "TERM 1 — Renew 80%+ of existing membership by 30 Sep 2026, based on the 30 Jun 2026 roster.",
-      "TERM 2 — Renew 80%+ of existing membership by 31 Mar 2027, based on the 30 Jun 2026 roster.",
+      "TERM 2 — Renew 80%+ of existing membership by 31 Mar 2027, based on the 30 Sep 2026 roster.",
     ],
     submission: "Not required.",
     presentation: "Term 1 → Reverberation 2026 · Term 2 → Ovation 2027",
@@ -404,7 +405,7 @@ const AWARDS = [
       "Rewards clubs that complete both renewal cycles early: the first-term renewal on/before 15 Sep 2026 (for the base as of 30 Jun 2026) and the second-term renewal on/before 15 Mar 2027 (for the base as of 1 Oct 2026). Clubs with fewer than 20 members must reach 20+ during the renewal cycles. Both cycles must be completed within the dates to be eligible.",
     eligibility: "All clubs in the District.",
     submission:
-      "Submit proof via www.district82.org: dashboard screenshot after renewals (JPG/PNG/PDF), club roster (CSV/XLSX), and wire-transfer email with proof of payment if applicable.",
+      "Membership renewals as of 15 Sep 2026 and 15 Mar 2027 are taken from the TMI Dashboard. Clubs that submit payment online through TMI need not send an email. Clubs that transfer membership payments via wire transfer must send a picture of the wire-transfer email with proof of payment and club roster attachments (JPG/PNG/PDF) to the Awards Chair (krishnamoorthycaucidheesan@gmail.com); the wire transfer should be done prior to the cut-off dates.",
     presentation: "Presented at the respective Division conferences.",
     keyDates: [
       { label: "First-term cut-off", date: "2026-09-15", display: "15 Sep 2026" },
@@ -495,7 +496,7 @@ const AWARDS = [
     eligibility: "Clubs with a base membership of at least 16 members.",
     criteria: [
       "Payments submitted for both the October 2026 and April 2027 renewal cycles.",
-      "Payments cover at least 50% of the club's base membership (minimum 10 paid members).",
+      "Payments cover at least 50% of the club's base membership (minimum 8 paid members).",
       "All qualifying payments received on/before 30 September 2026.",
       "Example: a club with a base of 20 renews at least 10 members for both cycles (US$120) by 30 Sep 2026.",
     ],
@@ -512,7 +513,7 @@ const AWARDS = [
     summary:
       "130+ points across the two Avenues, with Select Distinguished status or above.",
     description:
-      "Awarded when a club achieves 130+ points in total across the Club Quality Avenue (CQA, 100 pts) and Club Engagement Avenue (CEA, 100 pts). Clubs must achieve a minimum of 75 CQA points and be Select Distinguished or above in the 2026–2027 term. Clubs receiving the Transformation Award or Golden Club Award will not also receive the Quality Club Award.",
+      "Awarded when a club achieves 130+ points in total across the Club Quality Avenue (CQA, 100 pts) and Club Engagement Avenue (CEA, 100 pts). Clubs must achieve a minimum of 75 CQA points and be Select Distinguished or above in the 2026–2027 term. Where a club meets the eligibility criteria for multiple awards, the highest-ranking award is determined based on the applicable points earned and/or DCP status. The club is then presented with only one award from the following: Club Transformation Award, Quality Club Award, Golden Club Award or Platinum Award.",
     eligibility: "All clubs are encouraged to participate.",
     criteria: [
       "Minimum 75 points in the Club Quality Avenue (CQA).",
@@ -811,7 +812,7 @@ const SCORING = {
         detail: "Maximum 3 points; 0.5 points per member per program, for a maximum of 3 participants. Applicable TLI events are EMERGENCE and Pathways training programs only. Event dates are on the Events Calendar at www.district82.org.",
         cutoff: "As per the TLI program dates", submission: "Attendance marked during the program using the attendance link." },
       { no: 8, item: "Attending Judges' Training & Contest Management", points: 5,
-        detail: "Maximum 5 points; 2.5 points per contest season. 1 point for each member attending Judges' Training (maximum 2 members per season) who meets the judging qualification (certificates in Levels 1 and 2 of any Pathways path, or a DTM). 0.5 points for a minimum of 1 member attending Contest Management (ideally the contest master and contest chair).",
+        detail: "Maximum 5 points; 2.5 points per contest season. 1 point for each member attending Judges' Training (maximum 2 members per season) who meets the judging qualification (certificates in Levels 1 and 2 of any Pathways path, or a DTM). 0.5 points for a minimum of 1 member attending Contest Management (ideally the contest master and contest chair). Clubs chartered after 31 March 2026 may earn up to 2.5 points per season through the Contest Management Program alone, at 0.5 points per attending member to a maximum of 5 members; the Pathways Level 1 & 2 / DTM qualification requirement does not apply to points earned under this clause, as such clubs may not yet have members who have completed Level 2. Clubs chartered on or before 31 March 2026 remain subject to the criteria above. Members are encouraged to attend both the Judges' Training Program and the Contest Management Program, as both sessions are held on the same day.",
         cutoff: "As per the JTP program dates", submission: "Attendance marked during the program using the attendance link." },
       { no: 9, item: "Division Conferences / Contests", points: 6,
         detail: "6 points; maximum 3 points per conference across two conferences. 1 point per member, up to a maximum of 3 points per Division event. District Officers (District trio, AM, FM, PRM, Division Directors, and Area Directors of that division) are not counted. Members should attend their Home Division contest; for dual members, credit goes to the first club listed on the registration form. Points are not given to contestants.",
